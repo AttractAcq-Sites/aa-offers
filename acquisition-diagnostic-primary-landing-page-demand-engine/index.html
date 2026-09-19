@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acquisition Diagnostic | Attract Acquisition</title>
+<meta name="description" content="Before you spend another rand on media, find out if demand can be bought for your business. If the numbers don't support a launch, we say so and refund the fee.">
+<style>
+/* Attract brand reference — from aa-asset-map.html */
+:root {
+  --aa-forest: #142B23;
+  --aa-campaign-green: #254D38;
+  --aa-action-green: #236547;
+  --aa-wordmark-lime: #D8EDB4;
+  --aa-soft-lime: #D9EDB6;
+  --aa-outcome-green: #E2EFCF;
+  --aa-canvas: #F5F7F3;
+  --aa-white: #FFFFFF;
+  --aa-ink: #192925;
+  --aa-muted-sage: #73817B;
+  --aa-border: #DDE5DF;
+  --aa-nav-text: #BFCEC5;
+  --aa-nav-selected-bg: #2C4939;
+  --aa-nav-selected-text: #E0EFC9;
+  --aa-wordmark-period: #C5D7AC;
+  --aa-arrow: #163827;
+}
+.brand {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 18px;
+  font-weight: 750;
+  letter-spacing: -0.7px;
+  color: #FFFFFF;
+}
+.brand-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  margin-right: 8px;
+  border-radius: 9px;
+  background: #D8EDB4;
+  color: #163827;
+  font-weight: 700;
+}
+.brand-period { color: #C5D7AC; }
+.brand-surface { background: #142B23; }
+
+/* ---------- base ---------- */
+*{box-sizing:border-box}
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--aa-canvas);
+  color:var(--aa-ink);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:17px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+main,header,footer,section,nav,form{width:100%;max-width:100%}
+img,video,svg,canvas{max-width:100%;height:auto}
+p,span,strong,label,h1,h2,h3,h4,small,li{overflow-wrap:anywhere}
+a{color:var(--aa-action-green)}
+
+.wrap{width:calc(100% - 40px);max-width:1180px;margin-inline:auto;min-width:0}
+@media (max-width:1050px){ .wrap{width:calc(100% - 32px)} }
+@media (max-width:680px){ .wrap{width:calc(100% - 24px);max-width:100%} }
+@media (max-width:420px){ .wrap{width:calc(100% - 18px)} }
+
+h1,h2,h3,h4{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0 0 18px}
+h1{font-size:clamp(33px,5.4vw,60px);line-height:1.03;letter-spacing:-.032em;font-weight:800;max-width:17ch}
+h2{font-size:clamp(26px,3.5vw,42px);line-height:1.08;letter-spacing:-.025em;font-weight:800;max-width:22ch}
+h3{font-size:19px;line-height:1.25;letter-spacing:-.012em;font-weight:750;margin-bottom:10px}
+h4{font-size:16px;font-weight:750;margin-bottom:8px}
+p{margin:0 0 16px}
+p:last-child{margin-bottom:0}
+
+.kicker{
+  display:block;font-size:12px;font-weight:800;text-transform:uppercase;
+  letter-spacing:.2em;color:var(--aa-action-green);margin:0 0 16px;
+}
+.lede{font-size:clamp(18px,1.6vw,21px);line-height:1.45;color:#2b3a34;max-width:64ch}
+.muted{color:var(--aa-muted-sage)}
+.small{font-size:14.5px;line-height:1.55}
+
+.section{padding:88px 0}
+@media (max-width:680px){ .section{padding:58px 0} }
+.section + .section{border-top:1px solid var(--aa-border)}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:20;background:var(--aa-forest);border-bottom:1px solid rgba(255,255,255,.1)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:74px;padding:12px 0}
+.nav-inner > *{min-width:0}
+.brand-lockup{display:flex;align-items:center}
+.brand-sub{display:block;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--aa-nav-text);margin-top:2px}
+.nav-cta{
+  display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:12px;
+  border:1px solid rgba(255,255,255,.3);color:#fff;text-decoration:none;font-weight:700;font-size:14.5px;
+}
+.nav-cta:hover{background:var(--aa-nav-selected-bg)}
+@media (max-width:420px){ .brand-sub{display:none} .nav-cta{font-size:13.5px;padding:0 12px} }
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;text-align:center;
+  min-height:58px;padding:14px 28px;border-radius:13px;border:1px solid transparent;
+  font-family:inherit;font-size:16.5px;font-weight:750;letter-spacing:-.01em;
+  text-decoration:none;cursor:pointer;transition:transform .15s ease,background .15s ease;
+}
+.btn-primary{background:var(--aa-wordmark-lime);color:var(--aa-forest);box-shadow:0 12px 26px rgba(20,43,35,.18)}
+.btn-primary:hover{transform:translateY(-2px);background:var(--aa-soft-lime)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.32)}
+.btn-ghost:hover{background:var(--aa-nav-selected-bg)}
+.btn-secondary{background:#fff;color:var(--aa-forest);border-color:var(--aa-border)}
+.btn-secondary:hover{transform:translateY(-2px)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+@media (max-width:420px){ .actions{flex-direction:column} .btn{width:100%} }
+
+/* ---------- hero ---------- */
+.hero{background:var(--aa-forest);color:#fff;padding:74px 0 82px}
+.hero h1{color:#fff;max-width:19ch}
+.hero .kicker{color:var(--aa-wordmark-period)}
+.hero p{color:#D3DFD7}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:44px;align-items:start}
+.hero-grid > *{min-width:0}
+@media (max-width:1050px){ .hero-grid{grid-template-columns:minmax(0,1fr);gap:34px} .hero{padding:54px 0 62px} }
+.hero-panel{background:#fff;color:var(--aa-ink);border-radius:20px;padding:28px}
+.hero-panel h3{color:var(--aa-forest)}
+.keep{margin-top:18px;padding-top:16px;border-top:1px solid var(--aa-border);font-size:14.5px;color:var(--aa-action-green);font-weight:700}
+
+/* ---------- lists ---------- */
+ul.list{list-style:none;margin:0;padding:0}
+ul.list li{position:relative;padding:0 0 12px 26px;line-height:1.45}
+ul.list li:last-child{padding-bottom:0}
+ul.list li::before{
+  content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:3px;
+  background:var(--aa-action-green);
+}
+.dark ul.list li::before{background:var(--aa-wordmark-lime)}
+
+/* ---------- grids & cards ---------- */
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.grid-2 > *,.grid-3 > *{min-width:0}
+@media (max-width:1050px){ .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:680px){ .grid-2,.grid-3{grid-template-columns:minmax(0,1fr)} }
+
+.card{background:#fff;border:1px solid var(--aa-border);border-radius:18px;padding:26px}
+.card p{color:#3a4a44;font-size:16px}
+.split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:start}
+.split > *{min-width:0}
+@media (max-width:1050px){ .split{grid-template-columns:minmax(0,1fr);gap:30px} }
+
+/* numbered steps */
+.steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:38px}
+.steps > *{min-width:0}
+@media (max-width:680px){ .steps{grid-template-columns:minmax(0,1fr)} }
+.step{background:#fff;border:1px solid var(--aa-border);border-radius:18px;padding:24px;display:flex;gap:16px}
+.step > *{min-width:0}
+.num{
+  flex:0 0 auto;display:grid;place-items:center;width:34px;height:34px;border-radius:11px;
+  background:var(--aa-outcome-green);color:var(--aa-forest);font-weight:800;font-size:15px;
+}
+.step p{font-size:16px;color:#3a4a44;margin:0}
+
+/* dark section */
+.dark{background:var(--aa-forest);color:#fff}
+.dark h2,.dark h3,.dark h4{color:#fff}
+.dark p{color:#D3DFD7}
+.dark .kicker{color:var(--aa-wordmark-period)}
+.dark .card{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.16)}
+.dark .card p{color:#D3DFD7}
+.dark .muted{color:#A9BBB0}
+
+.verdict{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:34px}
+.verdict > *{min-width:0}
+@media (max-width:680px){ .verdict{grid-template-columns:minmax(0,1fr)} }
+.verdict .card{padding:28px}
+.verdict .tag{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--aa-wordmark-lime);display:block;margin-bottom:12px}
+
+/* funnel */
+.chain{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px;padding:0;list-style:none}
+.chain li{
+  background:#fff;border:1px solid var(--aa-border);border-radius:999px;
+  padding:8px 15px;font-size:14.5px;font-weight:650;color:var(--aa-forest);
+}
+.chain li.end{background:var(--aa-outcome-green);border-color:#C7DDB9}
+
+/* q&a */
+.qa{border-top:1px solid var(--aa-border);padding:22px 0}
+.qa:last-of-type{border-bottom:1px solid var(--aa-border)}
+.qa h3{margin-bottom:8px}
+.qa p{color:#3a4a44;margin:0}
+
+/* form */
+.form-panel{background:#fff;border-radius:22px;padding:30px;color:var(--aa-ink)}
+@media (max-width:680px){ .form-panel{padding:22px 18px} }
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.form-grid > *{min-width:0}
+@media (max-width:680px){ .form-grid{grid-template-columns:minmax(0,1fr)} }
+.field{display:flex;flex-direction:column}
+.field.full{grid-column:1 / -1}
+label{font-size:13.5px;font-weight:700;color:var(--aa-forest);margin-bottom:7px}
+input,select,textarea{
+  font-family:inherit;font-size:16px;color:var(--aa-ink);
+  background:#FBFCFB;border:1px solid #D6DED8;border-radius:13px;padding:13px 14px;width:100%;
+}
+textarea{min-height:104px;resize:vertical}
+input:focus,select:focus,textarea:focus{
+  outline:none;background:#fff;border-color:var(--aa-action-green);
+  box-shadow:0 0 0 4px rgba(35,101,71,.12);
+}
+.form-note{font-size:14px;color:var(--aa-muted-sage);margin-top:16px}
+.apply-grid{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:44px;align-items:start}
+.apply-grid > *{min-width:0}
+@media (max-width:1050px){ .apply-grid{grid-template-columns:minmax(0,1fr);gap:30px} }
+
+/* gaps */
+.gaps{background:#fff;border:1px solid var(--aa-border);border-radius:18px;padding:28px}
+.gaps h2{font-size:clamp(22px,2.6vw,28px);margin-bottom:10px}
+.gaps li{font-size:15px;color:#3a4a44}
+
+/* footer */
+.footer{background:var(--aa-forest);color:#A9BBB0;padding:40px 0;font-size:14.5px}
+.footer-inner{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+.footer-inner > *{min-width:0}
+.footer strong{color:#fff;font-weight:700}
+</style>
+</head>
+<body>
+
+<header class="nav brand-surface">
+  <div class="wrap nav-inner">
+    <div class="brand-lockup">
+      <span class="brand-icon" aria-hidden="true">A</span>
+      <span>
+        <span class="brand">Attract Acquisition<span class="brand-period">.</span></span>
+        <span class="brand-sub">Offer launches, South Africa</span>
+      </span>
+    </div>
+    <a class="nav-cta" href="#apply">Apply for a diagnostic</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker">The Acquisition Diagnostic</span>
+        <h1>Before you spend another rand on media, find out whether demand can actually be bought for your business.</h1>
+        <p class="lede">We research your market and your customer, show you what your competitors are offering and at what price, what a launch would cost you in total as one number, and what the capacity sitting idle is costing you a week.</p>
+        <p class="lede"><strong>If the numbers don't support a launch, we say so, we don't take the campaign, and the fee comes back in full.</strong></p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#apply">Apply for the Acquisition Diagnostic</a>
+          <a class="btn btn-ghost" href="#inside">See what's in it</a>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <h3>What you end up holding</h3>
+        <ul class="list">
+          <li>Your market and your customer, researched — where the demand sits and what it is asking for.</li>
+          <li>What your competitors are offering, and at what price.</li>
+          <li>A sourced evidence library built out of your own job files, photos and client history.</li>
+          <li>The offer we would engineer, written down.</li>
+          <li>The total outlay a launch would require — fee and media — as one number.</li>
+          <li>What a week of idle capacity currently costs you.</li>
+          <li>A verdict: launchable, or not.</li>
+        </ul>
+        <p class="keep">The evidence library is yours either way — including when the verdict is no.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <span class="kicker">Why this exists</span>
+        <h2>You've paid for marketing before. You got deliverables.</h2>
+      </div>
+      <div>
+        <p class="lede">Posts, a report, a dashboard, activity you could not trace to a single customer who paid you. You could not say afterwards what went wrong, only that it did.</p>
+        <p class="lede">Here is the part nobody did: check first whether your offer, your market and your economics could carry paid acquisition at all. They sold the campaign and found out with your money.</p>
+        <p class="lede">Meanwhile the work still arrives — you just can't say why, and you can't make more of it arrive in the month you need it. Referral built this business and referral has flattened. And the crew that's sitting, the empty bay, the benched consultant, the branch with no customers, the new service nobody has bought yet — that costs the same every week whether it bills or not.</p>
+        <p class="lede"><strong>The diagnostic answers the question before the money moves: can demand be bought here, for what, at what price, and what would it cost you to find out.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="inside">
+    <div class="wrap">
+      <span class="kicker">What the diagnostic is</span>
+      <h2>Seven things, written down, about your business.</h2>
+      <p class="lede">Not a capability deck. Findings on your market, your competitors, your proof and your numbers — the work a campaign should have been built on the first time.</p>
+
+      <div class="steps">
+        <div class="step"><span class="num">1</span><div><h4>Your market and your customer</h4><p>Where demand concentrates, what it is searching for and complaining about, and who is actually in a position to buy what you sell.</p></div></div>
+        <div class="step"><span class="num">2</span><div><h4>Competitor offers and prices</h4><p>What is on the table in your market right now and what it costs — so your offer is engineered against reality rather than against a guess.</p></div></div>
+        <div class="step"><span class="num">3</span><div><h4>Which of your proof is commercially usable</h4><p>One recorded proof-extraction session. The job files, the WhatsApp gallery, the eleven-year client, the job nobody else could do. You get back a structured evidence library where every claim is tied to something real in your business. You keep it whatever the verdict.</p></div></div>
+        <div class="step"><span class="num">4</span><div><h4>The offer we would engineer</h4><p>Packaging, specificity, risk reversal, targeting and framing. Cutting your price is not the mechanism, and nothing goes to market without your written sign-off.</p></div></div>
+        <div class="step"><span class="num">5</span><div><h4>The total outlay, as one number</h4><p>Fee and recommended media shown together, because that is how you price the risk — and how your accountant will read it.</p></div></div>
+        <div class="step"><span class="num">6</span><div><h4>What idle capacity costs you per week</h4><p>Worked out from your numbers. The comparison then isn't our fee against nothing. It's our fee against the run rate of the problem.</p></div></div>
+        <div class="step"><span class="num">7</span><div><h4>The verdict</h4><p>Launchable, or not. In writing, with the reasoning attached, in a document you can hand to a partner or an accountant without being in the room.</p></div></div>
+        <div class="step"><span class="num">8</span><div><h4>And what it isn't</h4><p>It is not a forecast. There is no projected lead count, no revenue figure and no return multiple in it, because none of that is knowable before a campaign runs.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="wrap">
+      <span class="kicker">The verdict gate</span>
+      <h2>Two outcomes. Both of them leave you better off than guessing.</h2>
+      <div class="verdict">
+        <div class="card">
+          <span class="tag">If it's launchable</span>
+          <h3>The diagnostic fee is credited in full against the Offer Launch fee.</h3>
+          <p>You go into the launch with the offer already engineered, the proof already extracted, the total outlay already agreed and a dated scope. You are not paying twice for the thinking.</p>
+        </div>
+        <div class="card">
+          <span class="tag">If it isn't</span>
+          <h3>We say so, we don't take the campaign, and the fee is refunded in full.</h3>
+          <p>No defensible offer, not enough demand, or economics that don't support the spend — you get that in writing rather than three weeks later with the media budget gone.</p>
+        </div>
+      </div>
+      <p class="lede" style="margin-top:30px;color:#fff"><strong>The worst outcome available to you here is an honest "don't do this", your money back, and an evidence library you keep.</strong></p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#apply">Apply for the Acquisition Diagnostic</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <span class="kicker">The honest part</span>
+        <h2>"Who have you done this for, in a business like mine?"</h2>
+      </div>
+      <div>
+        <p class="lede">Straight answer: Attract Acquisition has no published case studies, client results or testimonials for this positioning. This is the first documented cohort, and the results are being built now.</p>
+        <p class="lede">We are not going to show you someone else's screenshots, an anonymised composite, or an industry average dressed up as our outcome. If we did that, you would have no way of checking it — and you would be right not to believe it.</p>
+        <p class="lede">So this is what stands in its place, and all four are things you can inspect before you pay for a campaign:</p>
+        <ul class="list" style="margin-top:6px">
+          <li><strong>Research on your business first.</strong> You see us describe your market and your economics back to you before anyone asks you to fund media.</li>
+          <li><strong>A refundable fee if the answer is no.</strong> A supplier willing to talk itself out of the work is a supplier that expects to win the work it takes.</li>
+          <li><strong>A mechanism you can read.</strong> Set out below, node by node, including where it fails.</li>
+          <li><strong>The operator does the work.</strong> The person who runs the research is the person who would build the offer and be in the ad account. Not a junior account manager.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="kicker">The mechanism</span>
+      <h2>What gets measured, and what we refuse to claim.</h2>
+      <p class="lede">This is the chain a launch is measured on. Every enquiry generated through our infrastructure is timestamped and traceable to campaign, creative and offer, and you get the raw enquiry record, not a summary. If we can't show where an enquiry came from, we don't claim it.</p>
+      <ul class="chain" style="margin-top:26px">
+        <li>Qualified attention</li><li>Conversations</li><li>Qualified conversations</li><li>Appointments</li><li>Qualified appointments</li><li>Show-ups</li><li class="end">Customers</li><li class="end">Cash collected / attributable revenue</li>
+      </ul>
+      <div class="grid-2" style="margin-top:14px">
+        <div class="card">
+          <h3>Two clocks, said plainly</h3>
+          <p>A launch window is a scope boundary and a decision point, not a results deadline. Inside it we are accountable for the nodes we control — offer live, media in market, enquiries captured, conversations opened, appointments booked and shown, each one attributed. Cash collected sits on your sales cycle, which is longer, and we keep measuring past the end date rather than pretending it lands inside the window.</p>
+        </div>
+        <div class="card">
+          <h3>What we will never quote you</h3>
+          <p>A lead volume. A revenue figure. A cost per customer. A return multiple. None of those are knowable before the work runs, and a number invented to close you is a number your accountant will take apart in ten minutes. What we can tell you, before you spend on media, is whether the offer, the market and the economics can carry a launch at all.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="kicker">Straight answers</span>
+      <h2>The questions you were going to ask anyway.</h2>
+
+      <div class="qa">
+        <h3>What do you need from me, and how much of my time is it?</h3>
+        <p>For the diagnostic: a working session on your business, your market and your numbers, and one recorded proof-extraction session. We do the retrieval, the research and the writing. You are not given homework, and you are not asked to brief, curate or produce anything.</p>
+      </div>
+      <div class="qa">
+        <h3>Do I have to be on camera?</h3>
+        <p>No. You should not have to become a content creator to grow a service business. Founder, staff, or produced media — how the media gets made is a decision inside the plan, not a condition of buying.</p>
+      </div>
+      <div class="qa">
+        <h3>Will you make me discount my service?</h3>
+        <p>No. A stronger offer means better framing, specificity, bundling, risk reversal and sharper targeting. Price reduction is not the default mechanism, and no offer, price or claim goes to market without your written sign-off.</p>
+      </div>
+      <div class="qa">
+        <h3>Our customers don't come from Facebook.</h3>
+        <p>They might not. Channel is one of the things the research answers rather than one of the things we assume. If the diagnostic concludes your buyers are not reachable economically on the channels available, that is a reason for the verdict to be no.</p>
+      </div>
+      <div class="qa">
+        <h3>What if we can't handle a flood of enquiries?</h3>
+        <p>Then you shouldn't be running a launch, and we'd rather establish that now. Delivery capacity is part of the diagnosis, not a discovery in week two. Selling work you then deliver badly damages the referral reputation that is currently your whole acquisition engine.</p>
+      </div>
+      <div class="qa">
+        <h3>My partner and my accountant need to look at it.</h3>
+        <p>Expected. The diagnostic is written to be forwarded and read cold by someone who wasn't on the call: total outlay as one number, the scope, the end point, the refund and credit terms, and what you own at the end.</p>
+      </div>
+      <div class="qa">
+        <h3>Do I own what gets built?</h3>
+        <p>The ad account, pixel and campaign data, domain, landing pages, creative, copy, lead data and the evidence library are created in your business's name and stay yours. Where those assets are currently sitting with a former agency, a nephew or a personal profile, we drive the retrieval. The diagnostic itself carries no obligation to continue.</p>
+      </div>
+      <div class="qa">
+        <h3>How much is it?</h3>
+        <p>It is a paid step, priced below the launch fee, and the exact number is on the quote before you pay anything. We don't publish a fee, a media budget or a start date on a page like this, because those numbers should be set against your business and not advertised at a stranger.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <div class="card">
+        <span class="kicker">This is built for</span>
+        <ul class="list">
+          <li>Owners and co-owners of established South African service businesses who personally run the operation.</li>
+          <li>A meaningful, considered, high-ticket service — not commodity or emergency call-out work.</li>
+          <li>Real proof of delivery sitting unpackaged in job files, proposals and WhatsApp galleries.</li>
+          <li>Spare delivery capacity right now: the idle crew, the empty bay, the benched consultant, the new branch, the new service nobody has bought yet.</li>
+          <li>A date you are working towards — a quiet month you can see coming, a season, payroll on a date.</li>
+          <li>The ability to fund media as well as a fee, and the authority to sign for both.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="kicker">This is not for</span>
+        <ul class="list">
+          <li>Businesses with no spare capacity to sell into. There is nothing to fill.</li>
+          <li>Low-value, commodity or incident-driven maintenance work.</li>
+          <li>Anyone who isn't the person who can grant account access and authorise spend.</li>
+          <li>Anyone shopping for the cheapest monthly retainer. This is a dated, scoped piece of work, not a subscription.</li>
+          <li>Anyone who wants a guaranteed number of leads. We won't give you one, and we'd rather lose the deal than invent it.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" id="apply">
+    <div class="wrap apply-grid">
+      <div>
+        <span class="kicker">Next step</span>
+        <h2>Apply for an Acquisition Diagnostic.</h2>
+        <p class="lede" style="color:#D3DFD7">Tell us what's sitting idle and what date you're working towards. We run a small number of diagnostics at a time, because the operator doing the research is the same one who would build the offer and run the account — the same reason you turn work away when your crews are full.</p>
+        <p class="lede" style="color:#D3DFD7">Nothing is charged at application. The scope and the fee are quoted in writing first, and the verdict gate — refunded in full if it's a no, credited in full against the launch if it's a go — is on that quote before you pay.</p>
+      </div>
+
+      <div class="form-panel">
+        <form class="form-grid" method="post">
+          <div class="field">
+            <label for="fname">Your name</label>
+            <input id="fname" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="fbiz">Business name</label>
+            <input id="fbiz" name="business" type="text" autocomplete="organization" required>
+          </div>
+          <div class="field full">
+            <label for="fwhat">What the business does, in your own words</label>
+            <input id="fwhat" name="what_you_do" type="text" required>
+          </div>
+          <div class="field">
+            <label for="fprov">Where you operate</label>
+            <select id="fprov" name="province">
+              <option>Gauteng</option>
+              <option>Western Cape</option>
+              <option>KwaZulu-Natal</option>
+              <option>Eastern Cape</option>
+              <option>Free State</option>
+              <option>Mpumalanga</option>
+              <option>Limpopo</option>
+              <option>North West</option>
+              <option>Northern Cape</option>
+              <option>More than one province</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fdate">The date you're working towards</label>
+            <input id="fdate" name="trigger_date" type="text" placeholder="A quiet month, a season, a branch opening">
+          </div>
+          <div class="field full">
+            <label for="fcap">What capacity is sitting idle right now?</label>
+            <textarea id="fcap" name="idle_capacity" placeholder="The crew, the bay, the consultant, the branch, the new service — and roughly what it costs you to carry it."></textarea>
+          </div>
+          <div class="field full">
+            <label for="freply">How should we reply to you?</label>
+            <input id="freply" name="reply_to" type="text" placeholder="Email address or number, and which you prefer" required>
+          </div>
+          <div class="field full">
+            <button class="btn btn-primary" type="submit" style="width:100%">Apply for the Acquisition Diagnostic</button>
+            <p class="form-note">Applications are read by the operator who would do the work. If you're not a fit, we'll tell you that instead of booking a call.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="gaps">
+        <h2>Gaps</h2>
+        <p class="small muted" style="margin-bottom:14px">Stated plainly, because this page is written to survive being read back to us.</p>
+        <ul class="list">
+          <li class="small">Attract Acquisition has no cleared case studies, client results, testimonials, named references or performance figures for this positioning. None appear anywhere on this page. One proof record exists on file but is not cleared for use, so it has been left out entirely rather than implied.</li>
+          <li class="small">No fee, media budget, cohort size, concurrent-capacity number or start date is published here, because those numbers have not been fixed. They are quoted in writing before anything is paid.</li>
+          <li class="small">No lead volume, revenue figure, cost per customer or return multiple is claimed, and none will be given before a campaign has run and been measured.</li>
+          <li class="small">No phone number, WhatsApp number, address, website or named individual appears on this page, because none is on file. The application form is the only route in.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer brand-surface">
+  <div class="wrap footer-inner">
+    <div>
+      <strong>Attract Acquisition Pty Ltd</strong><br>
+      South Africa
+    </div>
+    <div>We don't run your marketing. We launch offers that create demand.</div>
+  </div>
+</footer>
+
+</body>
+</html>
